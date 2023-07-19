@@ -2,8 +2,8 @@ from flask import Flask, render_template
 
 app = Flask(__name__, template_folder="temp")
 
-def say_hello():
-    return 'Hello!'
+def say_hello(name):
+    return f'Hello, {name}!'
 
 @app.route("/")
 def home():
