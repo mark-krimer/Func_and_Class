@@ -2,6 +2,12 @@ from flask import Flask, render_template
 
 app = Flask(__name__, template_folder="temp")
 
+def multiply(*args):
+    product = 1
+    for n in args:
+        product = product * n
+    return product
+
 def review(*args):
     sum = 0
     for n in args:
@@ -29,7 +35,8 @@ def home():
     return render_template("index.html",
                            say_hello=say_hello,
                            ver=ver,
-                           review=review)
+                           review=review,
+                           multiply=multiply)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
